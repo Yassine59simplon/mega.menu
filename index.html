@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Association Menu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+    }
+
+    nav {
+      background-color: #2a3d66;
+      color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .menu-container .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ffdd57;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu > li {
+      position: relative;
+    }
+
+    .menu > li > a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 10px;
+      transition: color 0.3s;
+    }
+
+    .menu > li > a:hover {
+      color: #ffdd57;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #3f5279;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      display: none;
+      flex-direction: column;
+      padding: 10px;
+      z-index: 1000;
+    }
+
+    .menu > li:hover .dropdown {
+      display: flex;
+    }
+
+    .dropdown a {
+      text-decoration: none;
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 3px;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown a:hover {
+      background-color: #ffdd57;
+      color: #2a3d66;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #2a3d66;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+      }
+
+      .menu.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+        color: #fff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu-container">
+      <div class="logo">EduConnect</div>
+      <ul class="menu">
+        <li>
+          <a href="#"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-globe"></i> About Us</a>
+          <div class="dropdown">
+            <a href="#">Our Mission</a>
+            <a href="#">Our Team</a>
+            <a href="#">History</a>
+          </div>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-book"></i> Programs</a>
+          <div class="dropdown">
+            <a href="#">Exchange Programs</a>
+            <a href="#">Scholarships</a>
+            <a href="#">Workshops</a>
+          </div>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-handshake"></i> Partnerships</a>
+          <div class="dropdown">
+            <a href="#">Partner Schools</a>
+            <a href="#">NGOs</a>
+            <a href="#">Corporate Sponsors</a>
+          </div>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+        </li>
+      </ul>
+      <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
